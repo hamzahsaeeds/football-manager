@@ -1,18 +1,9 @@
-const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
 const connectDB = require("./config/db");
+const app = require("./app");
 
 dotenv.config();
 connectDB();
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Football Manager Backend Running!");
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
